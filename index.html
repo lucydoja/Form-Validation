@@ -21,21 +21,14 @@
             <h4 class="card-header">Ejemplo de modo de pago</h4>
             <div class="card-body" >
                 <div id="zonaAlerta">
-                    <!---
-                <div class="row" >
-                    <div class="col-12 p-3 bg-danger text-white rounded" id="alerta">
-                        <strong>Faltan espacios por completar</strong> 
-                    </div>
-                </div>
-                -->
+                   <div class='col-12 p-3 bg-danger text-white rounded' id='alerta'><strong>Faltan espacios por completar</strong></div>
                 </div>
 
             <form class="needs-validation" novalidate>
                 <div class="form-row mt-3">
                     <div class="col-8">
                         <label>Número de tarjeta</label>
-                        <input type="text" class="form-control" minlength="16" maxlength="16" placeholder="XXXX XXXX XXXX XXXX" required>
-                        
+                        <input type="text" class="form-control" minlength="16" maxlength="16" placeholder="XXXX XXXX XXXX XXXX" onkeypress=" return (event.charCode == 8 || event.charCode == 0 || event.charCode == 13) ? null : event.charCode >= 48 && event.charCode <= 57" required>
                     </div>
 
                     <div class="col-4">
@@ -43,8 +36,7 @@
                         <button type="button" class="btn btn-white p-0 m-0 mb-1" data-toggle="popover" data-placement="top" trigger="hover click" title="4 dígitos ubicados detrás de la tarjeta" disabled>
                             <i class="fas fa-info-circle"></i>
                         </button>
-                        <input type="text" class="form-control" minlength="4" maxlength="4" placeholder="XXXX" required>
-                        
+                        <input type="text" class="form-control" minlength="4" maxlength="4" placeholder="XXXX" onkeypress="return (event.charCode == 8 || event.charCode == 0 || event.charCode == 13) ? null : event.charCode >= 48 && event.charCode <= 57" required>
                     </div>
                      
                 </div>
@@ -53,33 +45,24 @@
                     <div class="col-5">
                         <label>Aceptamos</label>                      
                         <br>      
-                        <div class="d-flex flex-row">  
-                            <div >     
-                                <input type="radio" value="visa" name="tipo-tarjeta" required>
-                                <i class="fab fa-cc-visa fa-2x"></i>
+                        <div>                               
+                            <input type="radio" value="visa" name="tipo-tarjeta" required>
+                            <i class="fab fa-cc-visa fa-2x"></i>
+
+                            <input type="radio" value="mastercard" name="tipo-tarjeta" required>
+                            <i class="fab fa-cc-mastercard fa-2x"></i>
                                 
-                            </div>
-                            <div>  
-                                <input type="radio" value="mastercard" name="tipo-tarjeta" required>
-                                <i class="fab fa-cc-mastercard fa-2x"></i>
+                            <input type="radio" value="american-express" name="tipo-tarjeta" required>
+                            <i class="fab fa-cc-amex fa-2x"></i>
                                 
-                            </div>
-                            <div>  
-                                <input type="radio" value="american-express" name="tipo-tarjeta" required>
-                                <i class="fab fa-cc-amex fa-2x"></i>
-                                
-                            </div> 
-                            <div> 
-                                <input type="radio" value="paypal" name="tipo-tarjeta" required>
-                                <i class="fab fa-cc-paypal fa-2x"></i>
-                                
-                            </div> 
+                            <input type="radio" value="paypal" name="tipo-tarjeta" required>
+                            <i class="fab fa-cc-paypal fa-2x"></i>                            
                         </div>
                     </div>
                     <div class="col-7">
                         <label>Cantidad</label>
                         <i class="fas fa-dollar-sign"></i>
-                        <input type="text" class="form-control" placeholder="Cantidad en dólares" required>
+                        <input type="text" class="form-control" placeholder="Cantidad en dólares" onkeypress="return (event.charCode == 8 || event.charCode == 0 || event.charCode == 13) ? null : event.charCode >= 48 && event.charCode <= 57" required>
                        
                     </div>
                     
@@ -88,12 +71,12 @@
                  <div class="form-row mt-3">
                     <div class="col-4">
                         <label>Nombre</label>
-                        <input type="text" class="form-control" required>
+                        <input type="text" class="form-control" onkeydown="return /[a-z, ]/i.test(event.key)" required>
                         <div class="valid-feedback"></div>
                     </div>
                     <div class="col-8">
                         <label>Apellidos</label>
-                        <input type="text" class="form-control" required>
+                        <input type="text" class="form-control" onkeydown="return /[a-z, ]/i.test(event.key)" required>
                         <div class="valid-feedback"></div>
                     </div>                      
                 </div>
@@ -117,13 +100,13 @@
 
                     <div class="col-4">
                         <label>Cantón</label>
-                        <input type="text" class="form-control" required>
+                        <input type="text" class="form-control" onkeydown="return /[a-z, ]/i.test(event.key)" required>
                         <div class="valid-feedback"></div>
                     </div>
                     
                     <div class="col-4">
                         <label>Distrito</label>
-                        <input type="text" class="form-control" required>
+                        <input type="text" class="form-control" onkeydown="return /[a-z, ]/i.test(event.key)" required>
                         <div class="valid-feedback"></div>
                     </div>                   
                 </div>
@@ -132,12 +115,11 @@
                         <label>Mensaje</label>
                         <textarea type="text" class="form-control"  placeholder="Agregar notas aquí" rows="4"></textarea>
                     </div>  
-                </div>
-            
+                </div>            
 
             </div>
                 <div class="card-footer d-flex justify-content-end">
-                    <button  class="btn btn-secondary" type="reset">Cancelar</button>
+                    <button class="btn btn-secondary" type="reset">Cancelar</button>
                     <button class="btn btn-primary ml-1" type="submit">Enviar</button>
                 </div>
             </form>
